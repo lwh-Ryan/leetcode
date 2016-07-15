@@ -1,0 +1,14 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        candidate = None
+        count = 0
+        for num in nums:
+            if count == 0:
+                candidate = num
+                count += 1
+            elif candidate == num:
+                count += 1
+            else:
+                count -= 1
+        return candidate
+一旦相邻的两个元素不同，就把这两个元素对冲抵消掉；由于众数的出现频次大于数据其他所有元素出现频次之和，所以这种对冲抵消最后剩下的一定是众数。
